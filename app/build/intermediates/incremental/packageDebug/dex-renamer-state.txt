@@ -1,4 +1,0 @@
-#Sat Oct 08 20:07:21 IDT 2016
-base.0=/home/tomer/Projects/cw-omnibus/Assist/TapOffNow/app/build/intermediates/transforms/dex/debug/folders/1000/1f/main
-renamed.0=classes.dex
-file.0=/home/tomer/Projects/cw-omnibus/Assist/TapOffNow/app/build/intermediates/transforms/dex/debug/folders/1000/1f/main/classes.dex
