@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="/home/tomer/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/24.2.1/support-annotations-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="8de3aafecbdf98a61db6427f008f2d515bcd2544">
+        <dex dex="/home/tomer/Projects/cw-omnibus/Assist/TapOffNow/app/build/intermediates/pre-dexed/debug/support-annotations-24.2.1_0e676431838c8fbcf6051e1e9855b4fdf20debc7.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/tomer/Projects/cw-omnibus/Assist/TapOffNow/app/build/intermediates/exploded-aar/com.jakewharton/butterknife/8.4.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="a07818a1ecabdb149998823429cce555af4b9cba">
+        <dex dex="/home/tomer/Projects/cw-omnibus/Assist/TapOffNow/app/build/intermediates/pre-dexed/debug/com.jakewharton-butterknife-8.4.0_53d96c8022dfdb5747b6ad52e7fc4b47d4d81a99.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/tomer/Projects/cw-omnibus/Assist/TapOffNow/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="94bc1dfb84dcc8b6f6f8f7cc726d7b2dd39c1574">
+        <dex dex="/home/tomer/Projects/cw-omnibus/Assist/TapOffNow/app/build/intermediates/pre-dexed/debug/com.android.support-animated-vector-drawable-24.2.1_535fc3b3183a8f8d3b43d94b917ca0f3a5021f5b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/tomer/Projects/cw-omnibus/Assist/TapOffNow/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="9c4c3bc902450c39ed54de170db4fb12aea20a35">
+        <dex dex="/home/tomer/Projects/cw-omnibus/Assist/TapOffNow/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-utils-24.2.1_e9c7d33d8c3dd26a5c046c53ae2633f75b734a0d.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/tomer/.gradle/caches/modules-2/files-2.1/com.jakewharton/butterknife-annotations/8.4.0/ea392375cf9ff59234a82e7928a204215ccc98cd/butterknife-annotations-8.4.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="ea392375cf9ff59234a82e7928a204215ccc98cd">
+        <dex dex="/home/tomer/Projects/cw-omnibus/Assist/TapOffNow/app/build/intermediates/pre-dexed/debug/butterknife-annotations-8.4.0_c599124b03cbd0727039b74fe39cf3b746886797.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/tomer/Projects/cw-omnibus/Assist/TapOffNow/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="e7f3132168957eefc46229fc32c3bd464642b71e">
+        <dex dex="/home/tomer/Projects/cw-omnibus/Assist/TapOffNow/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-ui-24.2.1_b5b63e72ebdf0f3bde67e56a465a577d6ff9f0e5.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/tomer/Projects/cw-omnibus/Assist/TapOffNow/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="5f64d657e838e8375135c0f6057a7ff8fab6a50e">
+        <dex dex="/home/tomer/Projects/cw-omnibus/Assist/TapOffNow/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_18e4641c8cbad18e690e15b9cd19760af8013513.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/tomer/Projects/cw-omnibus/Assist/TapOffNow/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="d5c731fc64c03dfe04d51134955b483551c35849">
+        <dex dex="/home/tomer/Projects/cw-omnibus/Assist/TapOffNow/app/build/intermediates/pre-dexed/debug/com.android.support-support-vector-drawable-24.2.1_24c88d29ea0d4129103503235edaead2e8a31750.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/tomer/Projects/cw-omnibus/Assist/TapOffNow/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="935a969265b2a166b2d20415423f5f6e90fe16e0">
+        <dex dex="/home/tomer/Projects/cw-omnibus/Assist/TapOffNow/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_8de42e6dbfc79c9da5ca9224592a3ffd0e7529c5.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/tomer/Projects/cw-omnibus/Assist/TapOffNow/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/home/tomer/Projects/cw-omnibus/Assist/TapOffNow/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-24.2.1_c4cff63cdc2fdf584d9fa80964ce9c51b550e3af.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/tomer/Projects/cw-omnibus/Assist/TapOffNow/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="fbf8da429efd5ad21e02e3e5ecaa1efc4167878d">
+        <dex dex="/home/tomer/Projects/cw-omnibus/Assist/TapOffNow/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_5a0d2881f2cc81be3f1b3e4b1dc6fb48dc045115.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/tomer/Projects/cw-omnibus/Assist/TapOffNow/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="0ecb4b595fa0f0f8018a149ace3ea6525624f94e">
+        <dex dex="/home/tomer/Projects/cw-omnibus/Assist/TapOffNow/app/build/intermediates/pre-dexed/debug/com.android.support-support-compat-24.2.1_9b7f5bc6dd97978ecf907378c7a2e6ac0ea36d7f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/tomer/Projects/cw-omnibus/Assist/TapOffNow/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="7521486d9bfd2cd9e756e0cf75ed7d97f2ce2d3b">
+        <dex dex="/home/tomer/Projects/cw-omnibus/Assist/TapOffNow/app/build/intermediates/pre-dexed/debug/com.android.support-recyclerview-v7-24.2.1_163f77d9315ce69ba42477e5a0651cffd3e22e0a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/tomer/Projects/cw-omnibus/Assist/TapOffNow/app/build/intermediates/exploded-aar/com.android.support/design/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="e03f47f3d1017a093bb3239d4ec47c3447f40744">
+        <dex dex="/home/tomer/Projects/cw-omnibus/Assist/TapOffNow/app/build/intermediates/pre-dexed/debug/com.android.support-design-24.2.1_99e6d425d356b1cf6f25585e2b60aa1687c1530d.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/tomer/Projects/cw-omnibus/Assist/TapOffNow/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="43b2dba6b5a0b14527961b75329d0b90025f15ea">
+        <dex dex="/home/tomer/Projects/cw-omnibus/Assist/TapOffNow/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-24.2.1_370c3d9e9c408ce17260da62bbe5206ead5d3d58.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/tomer/Projects/cw-omnibus/Assist/TapOffNow/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="b9a1ac78ad7ef3abedc4a4b30cd92bcacb939d1f">
+        <dex dex="/home/tomer/Projects/cw-omnibus/Assist/TapOffNow/app/build/intermediates/pre-dexed/debug/com.android.support-support-fragment-24.2.1_bbb1b61b45efa9a4f3a15291f9777eb2524b4468.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/tomer/Projects/cw-omnibus/Assist/TapOffNow/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="09b462bbcb77650284bd6614f1a32f360ef369f8">
+        <dex dex="/home/tomer/Projects/cw-omnibus/Assist/TapOffNow/app/build/intermediates/pre-dexed/debug/com.android.support-support-media-compat-24.2.1_c9897adce5a4d9c1caa80061856ec1829c7615ab.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/tomer/Projects/cw-omnibus/Assist/TapOffNow/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="7e4389bd133359a2ff88623ff1e4ff93d6e6f780">
+        <dex dex="/home/tomer/Projects/cw-omnibus/Assist/TapOffNow/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_e686534be105a55ab273083efffee3b2682d5e40.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/tomer/Projects/cw-omnibus/Assist/TapOffNow/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="867dad63c33388ff8c7644b236579355036d075f">
+        <dex dex="/home/tomer/Projects/cw-omnibus/Assist/TapOffNow/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_b9e9d1a500efbece1957aa035a555291848fab7f.jar" />
+    </item>
+
+</items>
