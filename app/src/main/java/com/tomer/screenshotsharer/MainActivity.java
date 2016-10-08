@@ -54,13 +54,15 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
         if (currentAssistant.equals(getPackageName() + "/." + AssistLoggerService.class.getSimpleName()) || currentAssistant.contains(getPackageName()))
             assistant.setChecked(true);
         else
-            assistant.setOnTouchListener(this);
+            assistant.setChecked(false);
+        assistant.setOnTouchListener(this);
     }
 
     private void checkStorageAccess() {
         if (canWriteExternalPermission())
             storage.setChecked(true);
         else {
+            storage.setChecked(false);
             storage.setOnTouchListener(this);
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
         }
@@ -70,7 +72,8 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
         if (Settings.canDrawOverlays(this))
             preview.setChecked(true);
         else
-            preview.setOnTouchListener(this);
+            preview.setChecked(false);
+        preview.setOnTouchListener(this);
     }
 
     private boolean canWriteExternalPermission() {

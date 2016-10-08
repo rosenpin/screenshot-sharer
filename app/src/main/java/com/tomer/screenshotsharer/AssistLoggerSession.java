@@ -90,11 +90,13 @@ public class AssistLoggerSession extends VoiceInteractionSession {
         String pathToScreenshot = MediaStore.Images.Media.insertImage(getContext().getContentResolver(), bitmap, "screenshot", null);
         Uri bmpUri = Uri.parse(pathToScreenshot);
         final Intent shareIntent = new Intent(android.content.Intent.ACTION_SEND);
-        shareIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        shareIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         shareIntent.putExtra(Intent.EXTRA_STREAM, bmpUri);
         shareIntent.putExtra(Intent.EXTRA_TEXT, "");
         shareIntent.setType("image/png");
-        getContext().startActivity(Intent.createChooser(shareIntent, "Select the app you want to share the screenshot to"));
+        Intent finalShareIntent = Intent.createChooser(shareIntent, "Select the app you want to share the screenshot to");
+        finalShareIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        getContext().startActivity(finalShareIntent);
     }
 
     private boolean canWriteExternalPermission() {
