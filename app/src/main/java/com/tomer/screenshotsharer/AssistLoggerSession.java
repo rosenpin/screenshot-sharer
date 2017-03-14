@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.graphics.PixelFormat;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
@@ -14,6 +15,7 @@ import android.provider.MediaStore;
 import android.provider.Settings;
 import android.service.voice.VoiceInteractionSession;
 import android.util.Log;
+import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.ImageView;
@@ -38,23 +40,30 @@ public class AssistLoggerSession extends VoiceInteractionSession {
         Log.d(AssistLoggerSession.class.getSimpleName(), "Received screenshot");
         if (Settings.canDrawOverlays(getContext())) {
             showPreviewAndFinish(screenshot);
-            shareBitmap(screenshot);
         } else {
             shareBitmap(screenshot);
             finish();
         }
     }
 
-    private void showPreviewAndFinish(Bitmap screenshot) {
+    private void showPreviewAndFinish(final Bitmap screenshot) {
         final WindowManager windowManager = (WindowManager) getContext().getSystemService(WINDOW_SERVICE);
-        final ImageView imageView = new ImageView(getContext());
+        final View rootView = getLayoutInflater().inflate(R.layout.image_view, null);
+        final ImageView imageView = (ImageView) rootView.findViewById(R.id.image_view);
+        imageView.setAlpha(0.0f);
         imageView.setImageBitmap(screenshot);
-        ViewGroup.LayoutParams params = new WindowManager.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT, WindowManager.LayoutParams.TYPE_SYSTEM_ALERT, WindowManager.LayoutParams.FLAG_DIM_BEHIND, -2);
-        windowManager.addView(imageView, params);
-        new Handler().postDelayed(new Runnable() {
+        ViewGroup.LayoutParams params =
+            new WindowManager.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                WindowManager.LayoutParams.TYPE_SYSTEM_ALERT,
+                0,
+                PixelFormat.TRANSLUCENT);
+        windowManager.addView(rootView, params);
+        new Handler().post(new Runnable() {
             @Override
             public void run() {
-                imageView.animate().alpha(0f).setDuration(500).setListener(new Animator.AnimatorListener() {
+                imageView.animate().alpha(1.0f).setDuration(700).setListener(new Animator.AnimatorListener() {
                     @Override
                     public void onAnimationStart(Animator animation) {
 
@@ -62,7 +71,8 @@ public class AssistLoggerSession extends VoiceInteractionSession {
 
                     @Override
                     public void onAnimationEnd(Animator animation) {
-                        windowManager.removeView(imageView);
+                        shareBitmap(screenshot);
+                        windowManager.removeView(rootView);
                         finish();
                     }
 
@@ -77,7 +87,7 @@ public class AssistLoggerSession extends VoiceInteractionSession {
                     }
                 });
             }
-        }, 3000);
+        });
     }
 
     private void shareBitmap(Bitmap bitmap) {
@@ -87,14 +97,17 @@ public class AssistLoggerSession extends VoiceInteractionSession {
             getContext().startActivity(mainActivity);
             return;
         }
-        String pathToScreenshot = MediaStore.Images.Media.insertImage(getContext().getContentResolver(), bitmap, "screenshot", null);
+        String pathToScreenshot =
+            MediaStore.Images.Media.insertImage(getContext().getContentResolver(), bitmap,
+                "screenshot", null);
         Uri bmpUri = Uri.parse(pathToScreenshot);
         final Intent shareIntent = new Intent(android.content.Intent.ACTION_SEND);
         shareIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         shareIntent.putExtra(Intent.EXTRA_STREAM, bmpUri);
         shareIntent.putExtra(Intent.EXTRA_TEXT, "");
-        shareIntent.setType("image/png");
-        Intent finalShareIntent = Intent.createChooser(shareIntent, "Select the app you want to share the screenshot to");
+        shareIntent.setType("image/jpeg");
+        Intent finalShareIntent =
+            Intent.createChooser(shareIntent, "Select the app you want to share the screenshot to");
         finalShareIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         getContext().startActivity(finalShareIntent);
     }
