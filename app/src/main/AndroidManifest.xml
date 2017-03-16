@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.tomer.screenshotsharer">
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
     <application
         android:allowBackup="true"
@@ -21,7 +23,8 @@
         <service
             android:name="com.tomer.screenshotsharer.AssistLoggerService"
             android:directBootAware="true"
-            android:permission="android.permission.BIND_VOICE_INTERACTION">
+            android:permission="android.permission.BIND_VOICE_INTERACTION"
+            tools:targetApi="n">
             <meta-data
                 android:name="android.voice_interaction"
                 android:resource="@xml/assist_service" />
@@ -33,7 +36,16 @@
         <service
             android:name="com.tomer.screenshotsharer.AssistLoggerSessionService"
             android:directBootAware="true"
-            android:permission="android.permission.BIND_VOICE_INTERACTION" />
+            android:permission="android.permission.BIND_VOICE_INTERACTION"
+            tools:targetApi="n" />
+
+        <receiver
+            android:name=".BootReceiver"
+            tools:targetApi="M">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
 
     </application>
 </manifest>
