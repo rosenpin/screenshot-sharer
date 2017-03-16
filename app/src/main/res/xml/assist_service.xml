@@ -1,8 +1,6 @@
 <voice-interaction-service xmlns:android="http://schemas.android.com/apk/res/android"
     android:recognitionService="com.tomer.screenshotsharer.AssistLoggerService"
     android:sessionService="com.tomer.screenshotsharer.AssistLoggerSessionService"
+    android:settingsActivity="com.tomer.screenshotsharer.MainActivity"
     android:supportsAssist="true" />
 
-    <!--
-      android:settingsActivity="com.android.test.voiceinteraction.SettingsActivity"
-    -->
