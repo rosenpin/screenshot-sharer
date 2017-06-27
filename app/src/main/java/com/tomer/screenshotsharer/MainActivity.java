@@ -51,7 +51,9 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
 
     private void checkAssistant() {
         String currentAssistant = Settings.Secure.getString(getContentResolver(), "voice_interaction_service");
-        if (currentAssistant.equals(getPackageName() + "/." + AssistLoggerService.class.getSimpleName()) || currentAssistant.contains(getPackageName()))
+        if ((currentAssistant != null)
+                && (currentAssistant.equals(getPackageName() + "/." + AssistLoggerService.class.getSimpleName())
+                || currentAssistant.contains(getPackageName())))
             assistant.setChecked(true);
         else
             assistant.setChecked(false);
