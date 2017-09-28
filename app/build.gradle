@@ -14,8 +14,8 @@ android {
     defaultConfig {
         minSdkVersion 23
         targetSdkVersion 25
-        versionCode 5
-        versionName "1.4"
+        versionCode 6
+        versionName "1.6"
     }
 
     buildTypes {
@@ -27,10 +27,11 @@ android {
 }
 
 dependencies{
-    implementation 'com.android.support:appcompat-v7:25.3.1'
-    implementation 'com.android.support:percent:25.3.1'
+    implementation 'com.android.support:appcompat-v7:25.4.0'
+    implementation 'com.android.support:percent:25.4.0'
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
 }
 repositories {
     mavenCentral()
+    google()
 }
