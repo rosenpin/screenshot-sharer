@@ -12,22 +12,22 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:textOn="Service Enabled"
-        android:textOff="Service Disabled"/>
+        android:textOff="@string/service_disabled"
+        android:textOn="@string/service_enabled" />
 
     <ToggleButton
         android:id="@+id/storage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:textOff="Missing  Permission! Can't access screenshots"
-        android:textOn="Storage access permission granted"/>
+        android:textOff="@string/missing_permission_can_t_access_screenshots"
+        android:textOn="@string/storage_access_permission_granted" />
 
     <ToggleButton
         android:id="@+id/preview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:textOn="Previews enabled"
-        android:textOff="Previews disabled"/>
+        android:textOff="@string/previews_disabled"
+        android:textOn="@string/previews_enabled" />
 </LinearLayout>
