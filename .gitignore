@@ -41,3 +41,5 @@ captures/
 
 #IDEA
 .idea
+*.apk
+app/release/*

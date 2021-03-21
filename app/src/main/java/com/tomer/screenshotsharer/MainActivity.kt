@@ -7,20 +7,27 @@ import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
 import android.provider.Settings
-import android.support.v4.app.ActivityCompat
-import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MotionEvent
 import android.view.View
 import android.widget.Toast
-import kotlinx.android.synthetic.main.activity_main.*
+import android.widget.ToggleButton
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
 
 
 class MainActivity : AppCompatActivity(), View.OnTouchListener {
 	
+	private lateinit var preview: ToggleButton
+	private lateinit var assistant: ToggleButton
+	private lateinit var storage: ToggleButton
+	
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
 		setContentView(R.layout.activity_main)
+		assistant = findViewById<ToggleButton>(R.id.assistant)
+		storage = findViewById<ToggleButton>(R.id.storage)
+		preview = findViewById<ToggleButton>(R.id.preview)
 	}
 	
 	override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -46,7 +53,7 @@ class MainActivity : AppCompatActivity(), View.OnTouchListener {
 		preview.isClickable = false
 	}
 	
-	override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent) {
+	override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
 		super.onActivityResult(requestCode, resultCode, data)
 		checkStorageAccess()
 	}
@@ -73,7 +80,7 @@ class MainActivity : AppCompatActivity(), View.OnTouchListener {
 	}
 	
 	private fun canWriteExternalPermission(): Boolean {
-		val permission = "android.permission.WRITE_EXTERNAL_STORAGE"
+		val permission = Manifest.permission.WRITE_EXTERNAL_STORAGE
 		val res = checkCallingOrSelfPermission(permission)
 		return res == PackageManager.PERMISSION_GRANTED
 	}
@@ -86,7 +93,7 @@ class MainActivity : AppCompatActivity(), View.OnTouchListener {
 			}
 			R.id.storage -> ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE), 1)
 			R.id.preview -> {
-				startActivity(Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:" + packageName)))
+				startActivity(Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:$packageName")))
 				Toast.makeText(this, "Permit drawing over other apps for previews", Toast.LENGTH_SHORT).show()
 			}
 			else -> v.performClick()
