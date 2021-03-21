@@ -30,9 +30,16 @@ import java.util.*
 
 class AssistLoggerSession(context: Context) : VoiceInteractionSession(context) {
 	
+	override fun onHandleAssist(state: AssistState) {
+		super.onHandleAssist(state)
+		if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.Q) {
+			Log.d("Data", state.assistData.toString())
+		}
+	}
+	
 	override fun onHandleAssist(data: Bundle?, structure: AssistStructure?, content: AssistContent?) {
 		super.onHandleAssist(data, structure, content)
-		Log.d("Data", data!!.toString())
+		Log.d("Data", data.toString())
 	}
 	
 	override fun onHandleScreenshot(screenshot: Bitmap?) {
