@@ -161,7 +161,7 @@ class AssistLoggerSession(context: Context) : VoiceInteractionSession(context) {
             return
         }
         val time = SimpleDateFormat("yyyy-MM-dd_HH_mm_ss", Locale.getDefault()).format(Date())
-        val fileName = "screenshot-$time"
+        val fileName = "screenshot-$time.png"
 
         val path = saveImage(bitmap, fileName) ?: return
 
