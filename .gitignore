@@ -44,3 +44,4 @@ captures/
 *.apk
 app/release/*
 *.hprof
+*/**.DS_Store
