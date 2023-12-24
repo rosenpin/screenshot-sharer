@@ -37,6 +37,7 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.ViewModel
 import com.tomer.screenshotsharer.R
 import com.tomer.screenshotsharer.assist.AssistLoggerService
+import com.tomer.screenshotsharer.prefs.KEY_SAVE_SCREENSHOT
 import com.tomer.screenshotsharer.prefs.KEY_SHOW_PREVIEW
 import com.tomer.screenshotsharer.prefs.PrefsRepository
 import com.tomer.screenshotsharer.prefs.PrefsRepositoryMock
@@ -134,6 +135,12 @@ fun Content(viewModel: MainViewModel) {
                 onClick = {
                     viewModel.saveSetting(KEY_SHOW_PREVIEW, it)
                 })
+            SwitchSetting(
+                title = context.getString(R.string.save_screenshot),
+                checked = viewModel.saveScreenshot,
+                onClick = {
+                    viewModel.saveSetting(KEY_SAVE_SCREENSHOT, it)
+                })
         }
     }
 }
@@ -163,6 +170,7 @@ class MainViewModel @Inject constructor(
 
     val isAssistantEnabled = mutableStateOf(false)
     val showPreviewEnabled = mutableStateOf(false)
+    val saveScreenshot = mutableStateOf(true)
 
     fun checkAssistantState(context: Context) {
         isAssistantEnabled.value = isAssistant(context)
@@ -170,6 +178,7 @@ class MainViewModel @Inject constructor(
 
     fun loadSettings() {
         showPreviewEnabled.value = prefsRepository.getBoolean(KEY_SHOW_PREVIEW, false)
+        saveScreenshot.value = prefsRepository.getBoolean(KEY_SAVE_SCREENSHOT, true)
     }
 
     fun saveSetting(key: String, value: Boolean) {

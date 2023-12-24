@@ -16,16 +16,24 @@ import android.widget.ImageView
 import android.widget.Toast
 import com.tomer.screenshotsharer.R
 import com.tomer.screenshotsharer.prefs.DB_NAME
+import com.tomer.screenshotsharer.prefs.KEY_SAVE_SCREENSHOT
 import com.tomer.screenshotsharer.prefs.KEY_SHOW_PREVIEW
+import java.io.File
+import java.io.FileOutputStream
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
 
 
 class AssistLoggerSession(context: Context) : VoiceInteractionSession(context) {
-    private val showPreview by lazy {
+    private val prefs by lazy {
         context.getSharedPreferences(DB_NAME, Context.MODE_PRIVATE)
-            .getBoolean(KEY_SHOW_PREVIEW, false)
+    }
+    private val showPreview by lazy {
+        prefs.getBoolean(KEY_SHOW_PREVIEW, false)
+    }
+    private val saveScreenshot by lazy {
+        prefs.getBoolean(KEY_SAVE_SCREENSHOT, true)
     }
 
     override fun onHandleAssist(state: AssistState) {
@@ -82,9 +90,33 @@ class AssistLoggerSession(context: Context) : VoiceInteractionSession(context) {
             })
     }
 
-    private fun saveImage(bitmap: Bitmap?, fileName: String): String? {
-        if (bitmap == null)
-            return null
+    private fun saveImage(
+        context: Context,
+        bitmap: Bitmap?,
+        fileName: String,
+        saveScreenshotInStorage: Boolean
+    ): String? {
+        if (bitmap == null) return null
+
+        return if (saveScreenshotInStorage) {
+            saveToExternalStorage(context, bitmap, fileName)
+        } else {
+            saveToCache(context, bitmap, fileName)
+        }
+    }
+
+    private fun saveToCache(context: Context, bitmap: Bitmap, fileName: String): String {
+        val directory = context.cacheDir
+        val imageFile = File(directory, fileName)
+
+        FileOutputStream(imageFile).use { fos ->
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 85, fos)
+        }
+
+        return imageFile.absolutePath
+    }
+
+    private fun saveToExternalStorage(context: Context, bitmap: Bitmap, fileName: String): String? {
         val contentValues = ContentValues().apply {
             put(MediaStore.MediaColumns.DISPLAY_NAME, fileName)
             put(MediaStore.MediaColumns.MIME_TYPE, "image/jpeg")
@@ -97,16 +129,12 @@ class AssistLoggerSession(context: Context) : VoiceInteractionSession(context) {
             MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
             contentValues
         )
-        uri?.let {
-            context.contentResolver.openOutputStream(it).use { outputStream ->
-                outputStream?.let { stream ->
-                    bitmap.compress(Bitmap.CompressFormat.PNG, 85, stream)
-                    stream.flush()
-                    stream.close()
 
-                    // Add pic to gallery
-                    MediaScannerConnection.scanFile(context, arrayOf(uri.toString()), null, null)
-                }
+        uri?.let {
+            context.contentResolver.openOutputStream(it)?.use { outputStream ->
+                bitmap.compress(Bitmap.CompressFormat.JPEG, 85, outputStream)
+
+                MediaScannerConnection.scanFile(context, arrayOf(uri.toString()), null, null)
             }
             return uri.toString()
         }
@@ -118,7 +146,7 @@ class AssistLoggerSession(context: Context) : VoiceInteractionSession(context) {
         val time = SimpleDateFormat("yyyy-MM-dd_HH_mm_ss", Locale.getDefault()).format(Date())
         val fileName = "screenshot-$time.png"
 
-        val path = saveImage(bitmap, fileName) ?: run {
+        val path = saveImage(context, bitmap, fileName, saveScreenshot) ?: run {
             Log.e("Screenshot", "Failed to save image")
             return
         }
