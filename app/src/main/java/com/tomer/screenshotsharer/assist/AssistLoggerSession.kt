@@ -1,4 +1,4 @@
-package com.tomer.screenshotsharer
+package com.tomer.screenshotsharer.assist
 
 import android.animation.Animator
 import android.content.ContentValues
@@ -14,6 +14,7 @@ import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import android.widget.Toast
+import com.tomer.screenshotsharer.R
 import com.tomer.screenshotsharer.prefs.DB_NAME
 import com.tomer.screenshotsharer.prefs.KEY_SHOW_PREVIEW
 import java.text.SimpleDateFormat
