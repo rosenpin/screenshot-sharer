@@ -5,5 +5,4 @@
     <string name="missing_permission_can_t_access_screenshots">Missing Permission! Can\'t access screenshots</string>
     <string name="storage_access_permission_granted">Storage access permission granted</string>
     <string name="Screenshot">Screenshot</string>
-    <string name="title_activity_main2">MainActivity2</string>
 </resources>
