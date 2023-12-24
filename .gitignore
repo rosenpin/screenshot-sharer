@@ -43,3 +43,4 @@ captures/
 .idea
 *.apk
 app/release/*
+*.hprof

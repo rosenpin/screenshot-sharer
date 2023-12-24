@@ -9,18 +9,23 @@ import android.media.MediaScannerConnection
 import android.net.Uri
 import android.os.Environment
 import android.provider.MediaStore
-import android.provider.Settings
 import android.service.voice.VoiceInteractionSession
 import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import android.widget.Toast
+import com.tomer.screenshotsharer.prefs.DB_NAME
+import com.tomer.screenshotsharer.prefs.KEY_SHOW_PREVIEW
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
 
 
 class AssistLoggerSession(context: Context) : VoiceInteractionSession(context) {
+    private val showPreview by lazy {
+        context.getSharedPreferences(DB_NAME, Context.MODE_PRIVATE)
+            .getBoolean(KEY_SHOW_PREVIEW, false)
+    }
 
     override fun onHandleAssist(state: AssistState) {
         super.onHandleAssist(state)
@@ -30,7 +35,8 @@ class AssistLoggerSession(context: Context) : VoiceInteractionSession(context) {
     override fun onHandleScreenshot(screenshot: Bitmap?) {
         super.onHandleScreenshot(screenshot)
         Log.d(AssistLoggerSession::class.java.simpleName, "Received screenshot")
-        if (Settings.canDrawOverlays(context)) {
+
+        if (showPreview) {
             showPreviewAndFinish(screenshot)
         } else {
             shareBitmap(screenshot)
