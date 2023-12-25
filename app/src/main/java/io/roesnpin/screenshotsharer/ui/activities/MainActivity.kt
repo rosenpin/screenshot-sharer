@@ -1,4 +1,4 @@
-package com.tomer.screenshotsharer.ui.activities
+package io.rosenpin.screenshotsharer.ui.activities
 
 import android.content.ActivityNotFoundException
 import android.content.Context
@@ -35,13 +35,13 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.ViewModel
-import com.tomer.screenshotsharer.R
-import com.tomer.screenshotsharer.assist.AssistLoggerService
-import com.tomer.screenshotsharer.prefs.KEY_SAVE_SCREENSHOT
-import com.tomer.screenshotsharer.prefs.KEY_SHOW_PREVIEW
-import com.tomer.screenshotsharer.prefs.PrefsRepository
-import com.tomer.screenshotsharer.prefs.PrefsRepositoryMock
-import com.tomer.screenshotsharer.ui.theme.ScreenshotsharerTheme
+import io.rosenpin.screenshotsharer.R
+import io.rosenpin.screenshotsharer.assist.AssistLoggerService
+import io.rosenpin.screenshotsharer.prefs.KEY_SAVE_SCREENSHOT
+import io.rosenpin.screenshotsharer.prefs.KEY_SHOW_PREVIEW
+import io.rosenpin.screenshotsharer.prefs.PrefsRepository
+import io.rosenpin.screenshotsharer.prefs.PrefsRepositoryMock
+import io.rosenpin.screenshotsharer.ui.theme.ScreenshotsharerTheme
 import dagger.hilt.android.AndroidEntryPoint
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject

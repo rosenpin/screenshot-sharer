@@ -12,7 +12,7 @@
  * https://commonsware.com/Android
  */
 
-package com.tomer.screenshotsharer.assist
+package io.rosenpin.screenshotsharer.assist
 
 import android.service.voice.VoiceInteractionService
 

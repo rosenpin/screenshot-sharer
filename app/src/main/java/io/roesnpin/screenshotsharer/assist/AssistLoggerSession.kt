@@ -1,4 +1,4 @@
-package com.tomer.screenshotsharer.assist
+package io.rosenpin.screenshotsharer.assist
 
 import android.animation.Animator
 import android.content.ContentValues
@@ -14,10 +14,10 @@ import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import android.widget.Toast
-import com.tomer.screenshotsharer.R
-import com.tomer.screenshotsharer.prefs.DB_NAME
-import com.tomer.screenshotsharer.prefs.KEY_SAVE_SCREENSHOT
-import com.tomer.screenshotsharer.prefs.KEY_SHOW_PREVIEW
+import io.rosenpin.screenshotsharer.R
+import io.rosenpin.screenshotsharer.prefs.DB_NAME
+import io.rosenpin.screenshotsharer.prefs.KEY_SAVE_SCREENSHOT
+import io.rosenpin.screenshotsharer.prefs.KEY_SHOW_PREVIEW
 import java.io.File
 import java.io.FileOutputStream
 import java.text.SimpleDateFormat

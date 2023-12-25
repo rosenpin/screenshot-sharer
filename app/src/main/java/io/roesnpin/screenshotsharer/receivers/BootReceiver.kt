@@ -1,10 +1,10 @@
-package com.tomer.screenshotsharer.receivers
+package io.rosenpin.screenshotsharer.receivers
 
 
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
-import com.tomer.screenshotsharer.assist.AssistLoggerService
+import io.rosenpin.screenshotsharer.assist.AssistLoggerService
 
 class BootReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {

@@ -1,6 +1,6 @@
 <voice-interaction-service xmlns:android="http://schemas.android.com/apk/res/android"
-    android:recognitionService="com.tomer.screenshotsharer.assist.AssistLoggerService"
-    android:sessionService="com.tomer.screenshotsharer.assist.AssistLoggerSessionService"
-    android:settingsActivity="com.tomer.screenshotsharer.ui.activities.MainActivity"
+    android:recognitionService="io.rosenpin.screenshotsharer.assist.AssistLoggerService"
+    android:sessionService="io.rosenpin.screenshotsharer.assist.AssistLoggerSessionService"
+    android:settingsActivity="io.rosenpin.screenshotsharer.ui.activities.MainActivity"
     android:supportsAssist="true" />
 

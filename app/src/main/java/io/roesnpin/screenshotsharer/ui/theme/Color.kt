@@ -1,4 +1,4 @@
-package com.tomer.screenshotsharer.ui.theme
+package io.rosenpin.screenshotsharer.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

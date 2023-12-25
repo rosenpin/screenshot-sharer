@@ -9,7 +9,7 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name">
         <activity
-            android:name="com.tomer.screenshotsharer.ui.activities.MainActivity"
+            android:name="io.rosenpin.screenshotsharer.ui.activities.MainActivity"
             android:theme="@style/Theme.Screenshotsharer"
             android:exported="true">
             <intent-filter>

@@ -1,4 +1,4 @@
-package com.tomer.screenshotsharer.prefs
+package io.rosenpin.screenshotsharer.prefs
 
 import android.content.SharedPreferences
 

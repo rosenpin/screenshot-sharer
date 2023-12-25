@@ -1,11 +1,11 @@
-package com.tomer.screenshotsharer
+package io.rosenpin.screenshotsharer
 
 import android.app.Application
 import android.content.Context
 import android.content.SharedPreferences
-import com.tomer.screenshotsharer.prefs.DB_NAME
-import com.tomer.screenshotsharer.prefs.PrefsRepository
-import com.tomer.screenshotsharer.prefs.PrefsRepositoryImpl
+import io.rosenpin.screenshotsharer.prefs.DB_NAME
+import io.rosenpin.screenshotsharer.prefs.PrefsRepository
+import io.rosenpin.screenshotsharer.prefs.PrefsRepositoryImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

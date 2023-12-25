@@ -1,4 +1,4 @@
-package com.tomer.screenshotsharer.assist
+package io.rosenpin.screenshotsharer.assist
 
 import android.os.Bundle
 import android.service.voice.VoiceInteractionSessionService
