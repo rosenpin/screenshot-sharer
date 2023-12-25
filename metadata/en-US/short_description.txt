@@ -1,0 +1,2 @@
+Replace the assistant gesture with quick screenshot share.
+Quickest way to share screenshots.
