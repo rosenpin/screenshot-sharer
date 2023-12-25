@@ -14,6 +14,7 @@ import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import android.widget.Toast
+import androidx.core.content.FileProvider
 import io.rosenpin.screenshotsharer.R
 import io.rosenpin.screenshotsharer.prefs.DB_NAME
 import io.rosenpin.screenshotsharer.prefs.KEY_SAVE_SCREENSHOT
@@ -144,24 +145,34 @@ class AssistLoggerSession(context: Context) : VoiceInteractionSession(context) {
 
     private fun shareBitmap(bitmap: Bitmap?) {
         val time = SimpleDateFormat("yyyy-MM-dd_HH_mm_ss", Locale.getDefault()).format(Date())
-        val fileName = "screenshot-$time.png"
+        val fileName = "screenshot-$time.jpg"
 
         val path = saveImage(context, bitmap, fileName, saveScreenshot) ?: run {
             Log.e("Screenshot", "Failed to save image")
             return
         }
 
-        Log.d("Screenshot", "Saved image to $path")
+        val bmpUri: Uri = if (saveScreenshot) {
+            // Save the image using the original method and get a content URI
+            Uri.parse(path)
+        } else {
+            // Save the image to cache and get a content URI using FileProvider
+            val file = File(path)
+            FileProvider.getUriForFile(context, "${context.packageName}.provider", file)
+        }
 
-        val bmpUri = Uri.parse(path)
-        val shareIntent = Intent(Intent.ACTION_SEND)
-        shareIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-        shareIntent.putExtra(Intent.EXTRA_STREAM, bmpUri)
-        shareIntent.putExtra(Intent.EXTRA_TEXT, "")
-        shareIntent.type = "image/jpeg"
-        val finalShareIntent = Intent.createChooser(shareIntent, "Share screenshot to")
-        finalShareIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-        Log.d("Screenshot", "Sharing image")
+        val shareIntent = Intent(Intent.ACTION_SEND).apply {
+            addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION) // Grant temporary read permission
+            putExtra(Intent.EXTRA_STREAM, bmpUri)
+            type = "image/jpeg"
+        }
+
+        val finalShareIntent = Intent.createChooser(shareIntent, "Share screenshot to").apply {
+            addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+        }
+
+        Log.d("Screenshot", "Sharing image to $path")
         context.startActivity(finalShareIntent)
     }
 }

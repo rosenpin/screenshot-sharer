@@ -35,7 +35,6 @@
             android:name=".assist.AssistLoggerSessionService"
             android:directBootAware="true"
             android:permission="android.permission.BIND_VOICE_INTERACTION" />
-
         <receiver
             android:name=".receivers.BootReceiver"
             android:exported="true">
@@ -45,5 +44,14 @@
                 <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
             </intent-filter>
         </receiver>
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/files_path" />
+        </provider>
     </application>
 </manifest>
