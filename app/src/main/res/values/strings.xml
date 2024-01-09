@@ -6,4 +6,12 @@
     <string name="missing_permission_can_t_access_screenshots">Missing Permission! Can\'t access screenshots</string>
     <string name="storage_access_permission_granted">Storage access permission granted</string>
     <string name="Screenshot">Screenshot</string>
+    <string name="enable_service_description">Select Screenshot Sharer as your assistant app to enable the service</string>
+    <string name="show_preview_description">Show a brief preview of the screenshot before opening the share menu</string>
+    <string name="save_screenshot_description">Save the taken screenshots in the gallery in addition to sharing them. Screenshots are saved in your Pictures/Screenshots directory.</string>
+    <string name="enable_service_step_1">Step 1</string>
+    <string name="enable_service_step_2">Step 2</string>
+    <string name="ready">Ready</string>
+    <string name="enable_service_step_1_desc">Tap the current default digital assistant app</string>
+    <string name="enable_service_step_2_desc">Choose Screenshot Sharer as your new assist app</string>
 </resources>
