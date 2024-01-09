@@ -11,7 +11,7 @@
     <string name="save_screenshot_description">Save the taken screenshots in the gallery in addition to sharing them. Screenshots are saved in your Pictures/Screenshots directory.</string>
     <string name="enable_service_step_1">Step 1</string>
     <string name="enable_service_step_2">Step 2</string>
-    <string name="ready">Ready</string>
+    <string name="ready">Enable Now</string>
     <string name="enable_service_step_1_desc">Tap the current default digital assistant app</string>
     <string name="enable_service_step_2_desc">Choose Screenshot Sharer as your new assist app</string>
 </resources>

@@ -116,13 +116,15 @@ fun Content(viewModel: MainViewModel) {
         iterations = LottieConstants.IterateForever,
         useCompositionFrameRate = true
     )
-    val openDialog = remember { mutableStateOf(true) }
+    val openDialog = remember { mutableStateOf(!isAssistant(context)) }
     if (openDialog.value) {
         AlertDialog(
-            onDismissRequest = { },
+            onDismissRequest = {
+                openDialog.value = false
+            },
             properties = DialogProperties(
-                dismissOnBackPress = false,
-                dismissOnClickOutside = false
+                dismissOnBackPress = true,
+                dismissOnClickOutside = true
             ),
             content = {
                 Box(
