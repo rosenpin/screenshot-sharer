@@ -4,6 +4,7 @@ import android.content.ActivityNotFoundException
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
 import android.widget.Toast
@@ -20,7 +21,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
@@ -108,7 +108,11 @@ fun isAssistant(context: Context): Boolean {
 fun Content(viewModel: MainViewModel) {
     val context = LocalContext.current
     val composition by rememberLottieComposition(
-        LottieCompositionSpec.RawRes(R.raw.animation),
+        LottieCompositionSpec.RawRes(
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S)
+                R.raw.old_animation else
+                R.raw.old_animation
+        ),
         imageAssetsFolder = "images"
     )
     val progress by animateLottieCompositionAsState(
@@ -133,7 +137,8 @@ fun Content(viewModel: MainViewModel) {
                         .background(
                             MaterialTheme.colorScheme.background,
                             shape = RoundedCornerShape(16.dp)
-                        )) {
+                        )
+                ) {
                     Column(
                         horizontalAlignment = Alignment.CenterHorizontally,
                         modifier = Modifier
@@ -221,11 +226,11 @@ fun Content(viewModel: MainViewModel) {
             modifier = Modifier.padding(innerPadding),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-           Box(
-               Modifier
-                   .height(350.dp)
-                   .padding(16.dp)
-                   .background(Color.Black, shape = RoundedCornerShape(16.dp))
+            Box(
+                Modifier
+                    .height(350.dp)
+                    .padding(16.dp)
+                    .background(Color.Black, shape = RoundedCornerShape(16.dp))
             ) {
                 LottieAnimation(
                     composition = composition,
