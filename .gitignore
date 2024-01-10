@@ -46,3 +46,5 @@ app/release/*
 *.hprof
 */**.DS_Store
 
+
+*/output-metadata.json
