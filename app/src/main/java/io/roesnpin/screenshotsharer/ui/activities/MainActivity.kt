@@ -110,7 +110,7 @@ fun Content(viewModel: MainViewModel) {
     val composition by rememberLottieComposition(
         LottieCompositionSpec.RawRes(
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S)
-                R.raw.old_animation else
+                R.raw.animation else
                 R.raw.old_animation
         ),
         imageAssetsFolder = "images"
