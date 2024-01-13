@@ -41,7 +41,6 @@ captures/
 
 #IDEA
 .idea
-*.apk
 app/release/*
 *.hprof
 */**.DS_Store
