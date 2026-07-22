@@ -8,10 +8,10 @@ plugins {
 
 
 android {
-    compileSdk 34
+    compileSdk 36
     defaultConfig {
         minSdkVersion 29
-        targetSdkVersion 34
+        targetSdkVersion 36
         versionCode 70
         versionName "3.9"
         vectorDrawables {
